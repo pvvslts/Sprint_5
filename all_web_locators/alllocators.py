@@ -31,5 +31,6 @@ class LKProfl:
     l_k_logout_button = (By.XPATH, ".//button[text()='Выход']")
     l_k_info_message = (By.XPATH, ".//p[contains(text(),'персональные данные')]")
     l_k_histry_shop_button = (By.XPATH, ".//li[@class='Account_listItem__35dAP']/a[@class='Account_link__2ETsJ text text_type_main-medium text_color_inactive']")
+    l_k_h1_tag = (By.XPATH, ".//h1")
 class AuthPass:
     a_p_login_text_href = (By.XPATH, ".//a[text()='Войти']")

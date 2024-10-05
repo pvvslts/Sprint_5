@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from all_web_locators.alllocators import *
 from info_data_script.generate import MyInfo
+from site_url.url import Url
 
 class TestStellarBurgersLoginLogoutForm:
 
@@ -10,7 +11,7 @@ class TestStellarBurgersLoginLogoutForm:
         driver = login
 
         order_button = driver.find_element(*MainPage.m_n_order_button)
-        assert driver.current_url == "https://stellarburgers.nomoreparties.site/" and order_button.text == 'Оформить заказ'
+        assert driver.current_url == Url.url_main_paige and order_button.text == 'Оформить заказ'
 
     def test_login_sign_in_button_show_login_page(self, driver): # войти в аккаунт по кнопке
         driver.find_element(*MainPage.m_n_auth).click()
@@ -23,7 +24,7 @@ class TestStellarBurgersLoginLogoutForm:
         WebDriverWait(driver, 5).until(EC.presence_of_element_located(MainPage.m_n_order_button))
 
         order_button = driver.find_element(*MainPage.m_n_order_button)
-        assert driver.current_url == "https://stellarburgers.nomoreparties.site/" and order_button.text == 'Оформить заказ'
+        assert driver.current_url == Url.url_main_paige and order_button.text == 'Оформить заказ'
 
     def test_login_personal_account_button_show_login_page(self, driver): # проверка личного кабинета
         driver.find_element(*MainPage.m_n_prof_button).click()
@@ -36,10 +37,10 @@ class TestStellarBurgersLoginLogoutForm:
         WebDriverWait(driver, 9).until(EC.presence_of_element_located(MainPage.m_n_order_button))
 
         order_button = driver.find_element(*MainPage.m_n_order_button)
-        assert driver.current_url == "https://stellarburgers.nomoreparties.site/" and order_button.text == 'Оформить заказ'
+        assert driver.current_url == Url.url_main_paige and order_button.text == 'Оформить заказ'
 
     def test_login_registration_form_sign_in_button(self, driver): # войти в регистрации
-        driver.get("https://stellarburgers.nomoreparties.site/register")
+        driver.get(Url.url_register)
 
         driver.find_element(*AuthLogining.a_l_login_text_w_href).click()
         WebDriverWait(driver, 9).until(EC.presence_of_element_located(AuthLogining.a_l_login_text))
@@ -51,10 +52,10 @@ class TestStellarBurgersLoginLogoutForm:
         WebDriverWait(driver, 9).until(EC.presence_of_element_located(MainPage.m_n_order_button))
 
         order_button = driver.find_element(*MainPage.m_n_order_button)
-        assert driver.current_url == "https://stellarburgers.nomoreparties.site/" and order_button.text == 'Оформить заказ'
+        assert driver.current_url == Url.url_main_paige and order_button.text == 'Оформить заказ'
 
     def test_login_forgot_password_form_sign_in_button(self, driver): # войти через страницу забытый пароль
-        driver.get("https://stellarburgers.nomoreparties.site/forgot-password")
+        driver.get(Url.url_forgot_password)
 
         driver.find_element(*AuthPass.a_p_login_text_href).click()
         WebDriverWait(driver, 9).until(EC.presence_of_element_located(AuthLogining.a_l_login_text))
@@ -66,4 +67,4 @@ class TestStellarBurgersLoginLogoutForm:
         WebDriverWait(driver, 9).until(EC.presence_of_element_located(MainPage.m_n_order_button))
 
         order_button = driver.find_element(*MainPage.m_n_order_button)
-        assert driver.current_url == "https://stellarburgers.nomoreparties.site/" and order_button.text == 'Оформить заказ'
+        assert driver.current_url == Url.url_main_paige and order_button.text == 'Оформить заказ'

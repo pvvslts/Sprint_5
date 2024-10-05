@@ -6,19 +6,20 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from all_web_locators.alllocators import *
 from info_data_script.generate import MyInfo
+from site_url.url import Url
 
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
-    driver.get("https://stellarburgers.nomoreparties.site/")
+    driver.get(Url.url_main_paige)
     yield driver
     driver.quit()
 
 @pytest.fixture
 def login(driver):
 
-    driver.get("https://stellarburgers.nomoreparties.site/login")
+    driver.get(Url.url_login)
 
     driver.find_element(*AuthLogining.a_l_email_field).send_keys(MyInfo.login)
     driver.find_element(*AuthLogining.a_l_pass_field).send_keys(MyInfo.password)
